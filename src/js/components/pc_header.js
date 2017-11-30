@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {
     Col, Icon, Menu, Row,
     Tabs, Form, Input, message,
-    Button, Checkbox
+    Button, Checkbox, Modal
 } from 'antd';
 import {Link} from 'react-router-dom';
 import logoImage from '../../image/logo.png'
@@ -10,6 +10,7 @@ import logoImage from '../../image/logo.png'
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
+const TabPane = Tabs.TabPane;
 
 class PCHeader extends Component {
     constructor() {
@@ -24,8 +25,26 @@ class PCHeader extends Component {
         };
     }
 
+    setModalVisible = (value) => {
+        this.setState({modalVisible: value});
+    };
+
+    handleClick = (event) => {
+        if (event.key === 'register') {
+            this.setState({current: 'register'});
+            this.setModalVisible(true);
+        } else {
+            this.setState({current: event.key});
+        }
+    };
+
+    handleSubmit = ()=> {
+    }
+
+
+
     render() {
-        let {getFieldProps} = this.props.form;
+        let {getFieldDecorator} = this.props.form;
         const userShow = this.state.hashLogined
             ?
             <Menu.Item key="logout" className="register">
@@ -39,7 +58,7 @@ class PCHeader extends Component {
             </Menu.Item>
             :
             <Menu.Item key="register" className="register">
-                <Icon type="appstore" />注册/登录
+                <Icon type="appstore"/>注册/登录
             </Menu.Item>
         ;
         return (
@@ -54,7 +73,7 @@ class PCHeader extends Component {
                             </a>
                         </Col>
                         <Col span={16}>
-                            <Menu selectedKeys={[this.state.current]}
+                            <Menu onClick={this.handleClick} selectedKeys={[this.state.current]}
                                   mode="horizontal">
                                 <Menu.Item key="toutiao">
                                     <Icon type="appstore"/>头条
@@ -82,6 +101,33 @@ class PCHeader extends Component {
                                 </Menu.Item>
                                 {userShow}
                             </Menu>
+
+
+                            <Modal title="用户中心" wraoClassName="vertical-center-modal" visible={this.state.modalVisible}
+                                   onCancel={() => this.setModalVisible(false)}
+                                   onOk={() => this.setModalVisible(false)}
+                                   okText="关闭">
+                                <Tabs type="card">
+                                    <TabPane tab="注册" key="2">
+                                        <Form layout="horizontal" onSubmit={this.handleSubmit}>
+                                            <FormItem label="账户">
+                                                <Input placeholder="输入账户" {...getFieldDecorator('r_userName')} />
+                                            </FormItem>
+                                            <FormItem label="密码">
+                                                <Input type="password"
+                                                       placeholder="输入密码" {...getFieldDecorator('r_password')} />
+                                            </FormItem>
+                                            <FormItem label="确认密码">
+                                                <Input type="password"
+                                                       placeholder="输入确认密码" {...getFieldDecorator('r_confirmPassword')} />
+                                            </FormItem>
+                                            <Button type="primary" htmlType="submit">注册</Button>
+                                        </Form>
+                                    </TabPane>
+                                </Tabs>
+                            </Modal>
+
+
                         </Col>
                         <Col span={2}></Col>
                     </Row>
