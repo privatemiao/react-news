@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
     Col, Icon, Menu, Row,
     Tabs, Form, Input, message,
@@ -68,7 +68,7 @@ class MobileHeader extends React.Component {
         return (
             <div id='mobileheader'>
                 <header>
-                    <a href="/" className="logo">
+                    <a href="/">
                         <img src={logoImage} alt="logo"/>
                         <span>ReactNews</span>
                         {userShow}
