@@ -38,19 +38,22 @@ class PCHeader extends Component {
         }
     };
 
-    handleSubmit = (event)=> {
+    handleSubmit = (event) => {
         event.preventDefault();
         var myFetchOptions = {
             method: 'GET'
         };
         var formData = this.props.form.getFieldsValue();
         console.log(formData);
+        this.setState({userNickName: formData.userName})
+
+        message.success("注册成功");
+        this.setModalVisible(false);
     }
 
 
-
     render() {
-        let {getFieldProps} = this.props.form;
+        const {getFieldDecorator} = this.props.form;
         const userShow = this.state.hashLogined
             ?
             <Menu.Item key="logout" className="register">
@@ -117,15 +120,13 @@ class PCHeader extends Component {
                                     <TabPane tab="注册" key="2">
                                         <Form layout="horizontal" onSubmit={this.handleSubmit}>
                                             <FormItem label="账户">
-                                                <Input placeholder="输入账户" {...getFieldProps('r_userName')} />
+                                                {getFieldDecorator('userName')(<Input placeholder="输入账户"/>)}
                                             </FormItem>
                                             <FormItem label="密码">
-                                                <Input type="password"
-                                                       placeholder="输入密码" {...getFieldProps('r_password')} />
+                                                {getFieldDecorator('password')(<Input placeholder="输入密码"/>)}
                                             </FormItem>
                                             <FormItem label="确认密码">
-                                                <Input type="password"
-                                                       placeholder="输入确认密码" {...getFieldProps('r_confirmPassword')} />
+                                                {getFieldDecorator('confirmPassword')(<Input placeholder="输入密码"/>)}
                                             </FormItem>
                                             <Button type="primary" htmlType="submit">注册</Button>
                                         </Form>
