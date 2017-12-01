@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Col, Icon, Menu, Row, Tabs, Form, Input, message, Button, Checkbox, Modal} from 'antd';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import logoImage from '../../image/logo.png'
 
 const FormItem = Form.Item;
@@ -9,6 +9,7 @@ const MenuItemGroup = Menu.ItemGroup;
 const TabPane = Tabs.TabPane;
 
 class PCHeader extends Component {
+
     constructor() {
         super();
         this.state = {
@@ -19,6 +20,17 @@ class PCHeader extends Component {
             userNickName: '',
             userId: 0
         };
+    }
+
+    componentWillMount() {
+        if (localStorage.userid != '') {
+            this.setState({
+                hasLogined: true,
+                userNickName: localStorage.userNickName,
+                userId: localStorage.userid
+            });
+            console.log(this.state);
+        }
     }
 
     setModalVisible = (value) => {
@@ -70,6 +82,12 @@ class PCHeader extends Component {
         }
     };
 
+    logout = () => {
+        localStorage.userid = '';
+        localStorage.userNickName = '';
+        this.setState({hasLogined: false});
+    };
+
     render() {
         const {getFieldDecorator} = this.props.form;
         const userShow = this.state.hasLogined
@@ -83,7 +101,7 @@ class PCHeader extends Component {
                     </Link>
                 </Router>
                 &nbsp;&nbsp;
-                <Button type="ghost" htmlType="button">退出</Button>
+                <Button type="ghost" htmlType="button" onClick={this.logout}>退出</Button>
             </Menu.Item>
             :
             <Menu.Item key="register" className="register">
@@ -116,7 +134,7 @@ class PCHeader extends Component {
                                 <Menu.Item key="guoji">
                                     <Icon type="appstore"/>国际
                                 </Menu.Item>
-                                <Menu.Item key="yule">
+                                {/*<Menu.Item key="yule">
                                     <Icon type="appstore"/>娱乐
                                 </Menu.Item>
                                 <Menu.Item key="tiyu">
@@ -127,7 +145,7 @@ class PCHeader extends Component {
                                 </Menu.Item>
                                 <Menu.Item key="shishang">
                                     <Icon type="appstore"/>时尚
-                                </Menu.Item>
+                                </Menu.Item>*/}
                                 {userShow}
                             </Menu>
 
