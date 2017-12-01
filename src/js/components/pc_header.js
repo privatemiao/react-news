@@ -55,8 +55,6 @@ class PCHeader extends Component {
                 localStorage.userNickName = json.NickUserName;
             });
 
-        this.setState({userNickName: formData.userName, userid: 1});
-
         if (this.state.action == "login") {
             this.setState({hasLogined: true});
         }
