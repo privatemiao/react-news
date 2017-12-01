@@ -14,7 +14,7 @@ class MobileHeader extends React.Component {
         this.state = {
             current: 'toutiao',
             modalVisible: false,
-            action: 'login',
+            action: 'register',
             hashLogined: false,
             userNickName: '',
             userId: 0
@@ -51,7 +51,6 @@ class MobileHeader extends React.Component {
     ;
 
     login = (event) => {
-        event.preventDefault();
         this.setModalVisible(true);
     };
 
@@ -67,11 +66,11 @@ class MobileHeader extends React.Component {
         return (
             <div id='mobileheader'>
                 <header>
-                    <a href="/">
+                    <a href="http://www.baidu.com">
                         <img src={logoImage} alt="logo"/>
                         <span>ReactNews</span>
-                        {userShow}
                     </a>
+                    {userShow}
 
                     <Modal title="用户中心" wraoClassName="vertical-center-modal" visible={this.state.modalVisible}
                            onCancel={() => this.setModalVisible(false)}
