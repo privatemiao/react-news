@@ -1,16 +1,12 @@
 import React from 'react';
-import {
-    Col, Icon, Menu, Row,
-    Tabs, Form, Input, message,
-    Button, Checkbox, Modal
-} from 'antd';
-import {Link} from 'react-router-dom';
-import logoImage from '../../image/logo.png'
+import {Row, Col, Menu, Icon, Tabs, message, Form, Input, Button, CheckBox, Modal} from 'antd';
+import {Router, Route, Link, browserHistory} from 'react-router-dom';
+import logoImage from '../../image/logo.png';
 
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 const TabPane = Tabs.TabPane;
+const MenuItemGroup = Menu.ItemGroup;
 
 class MobileHeader extends React.Component {
     constructor() {
@@ -29,27 +25,30 @@ class MobileHeader extends React.Component {
         this.setState({modalVisible: value});
     };
 
-    handleClick = (event) => {
-        if (event.key === 'register') {
-            this.setState({current: 'register'});
-            this.setModalVisible(true);
-        } else {
-            this.setState({current: event.key});
-        }
-    };
-
-    handleSubmit = (event) => {
-        event.preventDefault();
+    handleSubmit = (e) => {
+        //页面开始向 API 进行提交数据
+        e.preventDefault();
         var myFetchOptions = {
             method: 'GET'
         };
         var formData = this.props.form.getFieldsValue();
         console.log(formData);
-        this.setState({userNickName: formData.userName})
-
-        message.success("注册成功");
+        fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=" + this.state.action
+            + "&username=" + formData.r_userName + "&password=" + formData.r_password
+            + "&confirmPassword=" + formData.r_confirmPassword, myFetchOptions)
+            .then(response => response.json())
+            .then(json => {
+                this.setState({userNickName: json.NickUserName, userid: json.UserId});
+                localStorage.userid = json.UserId;
+                localStorage.userNickName = json.NickUserName;
+            });
+        if (this.state.action == "login") {
+            this.setState({hasLogined: true});
+        }
+        message.success("请求成功！");
         this.setModalVisible(false);
-    };
+    }
+    ;
 
     login = (event) => {
         event.preventDefault();
@@ -82,19 +81,20 @@ class MobileHeader extends React.Component {
                             <TabPane tab="注册" key="2">
                                 <Form layout="horizontal" onSubmit={this.handleSubmit}>
                                     <FormItem label="账户">
-                                        {getFieldDecorator('userName')(<Input placeholder="输入账户"/>)}
+                                        {getFieldDecorator('r_userName')(<Input placeholder="输入账户"/>)}
                                     </FormItem>
                                     <FormItem label="密码">
-                                        {getFieldDecorator('password')(<Input placeholder="输入密码"/>)}
+                                        {getFieldDecorator('r_password')(<Input placeholder="输入密码"/>)}
                                     </FormItem>
                                     <FormItem label="确认密码">
-                                        {getFieldDecorator('confirmPassword')(<Input placeholder="输入密码"/>)}
+                                        {getFieldDecorator('r_confirmPassword')(<Input placeholder="输入密码"/>)}
                                     </FormItem>
                                     <Button type="primary" htmlType="submit">注册</Button>
                                 </Form>
                             </TabPane>
                         </Tabs>
                     </Modal>
+
                 </header>
             </div>
         )

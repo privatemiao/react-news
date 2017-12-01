@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
-import {
-    Col, Icon, Menu, Row,
-    Tabs, Form, Input, message,
-    Button, Checkbox, Modal
-} from 'antd';
+import {Col, Icon, Menu, Row, Tabs, Form, Input, message, Button, Checkbox, Modal} from 'antd';
 import {Link} from 'react-router-dom';
 import logoImage from '../../image/logo.png'
 
@@ -38,16 +34,27 @@ class PCHeader extends Component {
         }
     };
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    handleSubmit = (e) => {
+        //页面开始向 API 进行提交数据
+        e.preventDefault();
         var myFetchOptions = {
             method: 'GET'
         };
         var formData = this.props.form.getFieldsValue();
         console.log(formData);
-        this.setState({userNickName: formData.userName})
-
-        message.success("注册成功");
+        fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=" + this.state.action
+            + "&username=" + formData.r_userName + "&password=" + formData.r_password
+            + "&confirmPassword=" + formData.r_confirmPassword, myFetchOptions)
+            .then(response => response.json())
+            .then(json => {
+                this.setState({userNickName: json.NickUserName, userid: json.UserId});
+                localStorage.userid = json.UserId;
+                localStorage.userNickName = json.NickUserName;
+            });
+        if (this.state.action == "login") {
+            this.setState({hasLogined: true});
+        }
+        message.success("请求成功！");
         this.setModalVisible(false);
     }
 
@@ -120,13 +127,13 @@ class PCHeader extends Component {
                                     <TabPane tab="注册" key="2">
                                         <Form layout="horizontal" onSubmit={this.handleSubmit}>
                                             <FormItem label="账户">
-                                                {getFieldDecorator('userName')(<Input placeholder="输入账户"/>)}
+                                                {getFieldDecorator('r_userName')(<Input placeholder="输入账户"/>)}
                                             </FormItem>
                                             <FormItem label="密码">
-                                                {getFieldDecorator('password')(<Input placeholder="输入密码"/>)}
+                                                {getFieldDecorator('r_password')(<Input placeholder="输入密码"/>)}
                                             </FormItem>
                                             <FormItem label="确认密码">
-                                                {getFieldDecorator('confirmPassword')(<Input placeholder="输入密码"/>)}
+                                                {getFieldDecorator('r_confirmPassword')(<Input placeholder="输入密码"/>)}
                                             </FormItem>
                                             <Button type="primary" htmlType="submit">注册</Button>
                                         </Form>
