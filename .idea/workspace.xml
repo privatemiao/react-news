@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b780e4c-8963-46f6-a533-65c956c9e960" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/js/components/mobile_list.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/js/components/pc_new_block.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/js/components/pc_news_image_block.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/js/components/pc_newscontainer.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/js/components/pc_product.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/image/logo.png" afterPath="$PROJECT_DIR$/src/image/logo.png" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/pc_header.js" afterPath="$PROJECT_DIR$/src/js/components/pc_header.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/pc_index.js" afterPath="$PROJECT_DIR$/src/js/components/pc_index.js" />
+      <change beforePath="$PROJECT_DIR$/src/css/pc.css" afterPath="$PROJECT_DIR$/src/css/pc.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,11 +24,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pc_newscontainer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pc_newscontainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/components/pc_newscontainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+            <state relative-caret-position="525">
+              <caret line="27" column="48" lean-forward="false" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pc.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/css/pc.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="499">
+              <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -96,13 +100,13 @@
         <option value="$PROJECT_DIR$/src/js/components/pc_footer.js" />
         <option value="$PROJECT_DIR$/src/js/components/mobile_footer.js" />
         <option value="$PROJECT_DIR$/src/css/mobile.css" />
-        <option value="$PROJECT_DIR$/src/css/pc.css" />
         <option value="$PROJECT_DIR$/src/js/components/mobile_header.js" />
         <option value="$PROJECT_DIR$/src/js/components/mobile_index.js" />
         <option value="$PROJECT_DIR$/src/js/components/pc_header.js" />
         <option value="$PROJECT_DIR$/src/js/components/pc_newcontainer.js" />
         <option value="$PROJECT_DIR$/src/js/components/pc_index.js" />
         <option value="$PROJECT_DIR$/src/js/components/pc_newscontainer.js" />
+        <option value="$PROJECT_DIR$/src/css/pc.css" />
       </list>
     </option>
   </component>
@@ -148,6 +152,12 @@
               <item name="react-news" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-news" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-news" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-news" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-news" type="b2602c69:ProjectViewProjectNode" />
@@ -291,12 +301,12 @@
       <workItem from="1511970843351" duration="2390000" />
       <workItem from="1512058956365" duration="573000" />
       <workItem from="1512133339915" duration="3542000" />
-      <workItem from="1512231277372" duration="2183000" />
+      <workItem from="1512231277372" duration="2486000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24219000" />
+    <option name="totallyTimeSpent" value="24522000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1146" y="0" width="779" height="1047" extended-state="0" />
@@ -666,14 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/pc.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/components/mobile_header.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -752,8 +754,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/components/pc_newscontainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        <state relative-caret-position="525">
+          <caret line="27" column="48" lean-forward="false" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/pc.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
           <folding />
         </state>
       </provider>
