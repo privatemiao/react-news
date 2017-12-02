@@ -21,11 +21,11 @@
     float: right !important;
 }
 
-.ant-menu-horizontal > .ant-menu-item > a, .ant-menu-horizontal > .ant-menu-submenu > a {
+.ant-menu-horizontal>.ant-menu-item>a, .ant-menu-horizontal>.ant-menu-submenu>a {
     display: inline-block !important;
 }
 
-.container {
+.container{
     padding-top: 10px;
 }
 
@@ -39,18 +39,16 @@
     float: left;
 }
 
-.ant-card {
+.ant-card{
     margin-top: 5px !important;
 }
 
-.ant-card-head-title {
+.ant-card-head-title{
     text-align: left !important;
 }
-
-.ant-card-body {
+.ant-card-body{
     text-align: left !important;
 }
-
 .usercenter {
     float: right !important;
 }
@@ -119,7 +117,7 @@
     text-overflow: ellipsis;
 }
 
-.clearfix {
+.clearfix{
     margin-top: 20px;
 }
 
@@ -131,8 +129,8 @@
     padding: 15px !important;
 }
 
-.leftContainer {
-    width: 400px;
+.leftContainer{
+    width:400px;
     float: left;
 }
 
@@ -149,7 +147,7 @@
     color: #999;
 }
 
-.register {
+.register{
     float: right !important;
 }
 
@@ -165,9 +163,11 @@ iframe {
     font-size: 12px !important;
 }
 
-.ant-menu-horizontal > .ant-menu-item > a, .ant-menu-horizontal > .ant-menu-submenu > a {
+.ant-menu-horizontal > .ant-menu-item > a, .ant-menu-horizontal > .ant-menu-submenu > a
+{
     display: inline-block !important;
 }
+
 
 /*Footer******Start*****/
 
@@ -176,8 +176,9 @@ iframe {
     padding-top: 20px;
 }
 
+
 /*Footer******End*****/
-.title, .article-title .title {
+.title,.article-title .title {
     font-size: 0.44rem !important;
     line-height: 1.4em
 }
@@ -318,11 +319,15 @@ iframe {
     margin-top: 1px;
 }
 
+
 /*productlist-item */
+
+
+
 
 /**Article Content**/
 
-.container {
+.container{
     text-align: center;
 }
 
@@ -330,18 +335,18 @@ iframe {
     text-align: justify
 }
 
-.article-content .img .img-wrap, .hot-news img {
+.article-content .img .img-wrap,.hot-news img {
     background-repeat: no-repeat;
     background-position: center
 }
 
-.hn-title h2, .in-title h2 {
+.hn-title h2,.in-title h2 {
     z-index: 1;
     font-weight: 600
 }
 
 #title {
-    margin: 16px 16px 0 !important;
+    margin: 16px 16px 0!important;
     border-bottom: 1px solid #e5e5e5
 }
 
@@ -349,7 +354,7 @@ iframe {
     margin-bottom: .2rem
 }
 
-#title .title, .article-title .title {
+#title .title,.article-title .title {
     font-size: 1.44rem;
     line-height: 1.4em
 }
