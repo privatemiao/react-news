@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Col, Icon, Menu, Row, Tabs, Form, Input, message, Button, Checkbox, Modal} from 'antd';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import logoImage from '../../image/logo.png'
+import logoImage from '../../image/logo.png';
 
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
